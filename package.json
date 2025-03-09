@@ -1,7 +1,7 @@
 {
   "name": "dbtify",
   "displayName": "dbtify",
-  "description": "A small tool to dbtify your SQL",
+  "description": "A small tool to replace SQL table references with dbt model refs",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.98.0"
