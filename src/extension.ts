@@ -44,20 +44,27 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 function transformText(text: string): string {
-	// Replace quoted fully qualified table references first.
-	const quotedRegex = /"([^"]+)"\."([^"]+)"\."([^"]+)"/g;
-	text = text.replace(quotedRegex, (_match, _db, _schema, table) => {
-	  return `{{ ref('${table}') }}`;
-	});
+  // This prefix matches:
+  // - FROM
+  // - Any join type that ends with JOIN (e.g. LEFT JOIN, RIGHT JOIN, etc.)
+  // - A comma (for additional tables in a list)
+  const prefixPattern = '((?:\\b(?:FROM|(?:\\w+\\s+)?JOIN)\\b|\\s*,)\\s+)';
   
-	// Then replace unquoted fully qualified table references.
-	const unquotedRegex = /\b([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+)\b/g;
-	text = text.replace(unquotedRegex, (_match, _db, _schema, table) => {
-	  return `{{ ref('${table}') }}`;
-	});
-  
-	return text;
-}  
+  // This pattern matches a qualified table reference with at least two parts,
+  // where each part can be either quoted ("identifier") or unquoted (identifier)
+  const qualifiedRegex = new RegExp(
+    prefixPattern + '((?:"[^"]+"|[a-zA-Z0-9_]+)(?:\\.(?:"[^"]+"|[a-zA-Z0-9_]+))+)',
+    'gi'
+  );
+
+  return text.replace(qualifiedRegex, (_match, prefix, qualifiedName) => {
+    // Split the qualified name into parts (e.g. [db, schema, table] or [schema, table])
+    const parts = qualifiedName.split('.');
+    // Use the last part as the table name and remove any quotes from it
+    let tableName = parts[parts.length - 1].replace(/^"|"$/g, '');
+    return `${prefix}{{ ref('${tableName}') }}`;
+  });
+}
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
