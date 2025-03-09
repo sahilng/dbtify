@@ -1,3 +1,3 @@
 # dbtify
 
-A small tool to replace SQL table references with dbt model refs
+VSCode extension to replace SQL table references with dbt model refs
