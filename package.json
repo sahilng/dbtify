@@ -25,7 +25,15 @@
         "command": "dbtify.transformSelection",
         "title": "dbtify: Transform Selection"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "dbtify.transformSelection",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
