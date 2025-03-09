@@ -9,10 +9,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:dbtify.transformEntireFile",
-    "onCommand:dbtify.transformSelection"
-  ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
