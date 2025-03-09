@@ -48,7 +48,7 @@ function transformText(text: string): string {
   // - FROM
   // - Any join type that ends with JOIN (e.g. LEFT JOIN, RIGHT JOIN, etc.)
   // - A comma (for additional tables in a list)
-  const prefixPattern = '((?:\\b(?:FROM|(?:\\w+\\s+)?JOIN)\\b|\\s*,)\\s+)';
+  const prefixPattern = '((?:\\b(?:FROM|(?:\\w+\\s+)?JOIN)\\b)\\s+)';
   
   // This pattern matches a qualified table reference with at least two parts,
   // where each part can be either quoted ("identifier") or unquoted (identifier)
