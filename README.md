@@ -9,5 +9,5 @@ VSCode extension to replace SQL table references with dbt model refs
 ![image](installation.png)
 
 ## Usage
-
+Command Palette
 ![image](usage.png)
