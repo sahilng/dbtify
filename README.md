@@ -2,8 +2,12 @@
 
 VSCode extension to replace SQL table references with dbt model refs
 
-## Usage
+## Installation
 
 - Download the .vsix file
 - Install
 ![image](installation.png)
+
+## Usage
+
+![image](usage.png)
