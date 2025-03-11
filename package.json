@@ -3,6 +3,7 @@
   "name": "dbtify",
   "displayName": "dbtify",
   "description": "VSCode extension to replace SQL table references with dbt model refs",
+  "icon": "icon.png",
   "version": "1.0.0",
   "repository": {
     "type": "git",
