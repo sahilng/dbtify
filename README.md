@@ -8,7 +8,7 @@ VSCode extension to replace SQL table references with dbt model refs
 
 ### Or manually:
 
-- [Download the .vsix file](https://raw.githubusercontent.com/sahilng/dbtify/main/dbtify-1.0.2.vsix)
+- [Download the .vsix file](https://raw.githubusercontent.com/sahilng/dbtify/main/dbtify.vsix)
 - Install
 ![image](INSTALLATION.png)
 
