@@ -1,6 +1,6 @@
 # <img src='ICON.png' height=25px> dbtify
 
-VSCode extension to replace SQL table references with dbt model refs
+VS Code extension to replace SQL table references with dbt model refs
 
 ## Installation
 
